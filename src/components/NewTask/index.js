@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 
-const NewTask = () => {
+const NewTask = ({ onSubmit }) => {
     const [value, setValue] = useState('');
 
-    const onSubmit = e => {
+    const onHandleSubmit = e => {
         e.preventDefault();
         if (value.trim() === '') {
             return;
         } else {
+            onSubmit(value);
             setValue('');
         }
     };
@@ -17,7 +18,7 @@ const NewTask = () => {
         <>
             <form
                 className='flex  px-4 py-4 gap-2 bg-gray-200 border-t border-gray-800'
-                onSubmit={e => onSubmit(e)}>
+                onSubmit={e => onHandleSubmit(e)}>
                 <input
                     type='text'
                     className='flex-1 focus:outline-none h-full px-6 rounded-full'
