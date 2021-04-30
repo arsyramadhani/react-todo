@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Minimal Todolist App with CRA, Redux and TailwindCSS
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
