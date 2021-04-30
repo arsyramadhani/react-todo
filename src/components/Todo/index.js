@@ -8,7 +8,6 @@ import {
     deleteTask,
 } from '../../store/slice/TodosSlice';
 import ListItem from '../ListItem';
-import { getDay } from '../../utils';
 
 const Todo = () => {
     const dispatch = useDispatch();

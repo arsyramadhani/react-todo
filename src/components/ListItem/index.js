@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaCheckCircle, FaRegCircle, FaTrash } from 'react-icons/fa';
+import { FaCheckCircle, FaRegCircle, FaTrash, FaPlus } from 'react-icons/fa';
 
 const ListItem = ({ id, task, complete, onComplete, onEdit, onDelete }) => {
     // const [isHoverOnDelete, setIsHoverOnDelete] = useState(false);
@@ -38,9 +38,9 @@ const ListItem = ({ id, task, complete, onComplete, onEdit, onDelete }) => {
             <button
                 onClick={onHandleDelete}
                 className={` text-left h-full focus:outline-none   ${
-                    !isHover && 'hidden'
+                    !isHover && ''
                 }`}>
-                <FaTrash size='24px' />
+                <FaPlus size='24px' className='transform rotate-45' />
             </button>
         </div>
     );
