@@ -8,6 +8,7 @@ import {
     deleteTask,
 } from '../../store/slice/TodosSlice';
 import ListItem from '../ListItem';
+import { getDay } from '../../utils';
 
 const Todo = () => {
     const dispatch = useDispatch();
@@ -31,7 +32,12 @@ const Todo = () => {
     return (
         <div className=' h-full flex flex-col justify-between '>
             <Header />
-            <div className='flex-1 bg-white flex-col overflow-y-auto px-2 md:px-4 '>
+            <div className='flex-1  bg-gray-50 flex-col overflow-y-auto px-2 pt-4 md:px-4 '>
+                {todos.length === 0 && (
+                    <p className=' text-center my-auto text-gray-400'>
+                        Start by adding new task
+                    </p>
+                )}
                 {todos.map((todo, i) => (
                     <ListItem
                         key={todo.id}

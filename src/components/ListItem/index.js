@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaCheckCircle, FaRegCircle, FaTrash } from 'react-icons/fa';
 
 const ListItem = ({ id, task, complete, onComplete, onEdit, onDelete }) => {
+    // const [isHoverOnDelete, setIsHoverOnDelete] = useState(false);
     const [isHover, setIsHover] = useState(false);
 
     const onHandleComplete = () => {
@@ -14,7 +15,9 @@ const ListItem = ({ id, task, complete, onComplete, onEdit, onDelete }) => {
 
     return (
         <div
-            className='flex gap-4 px-4 bg-white border-b-2 h-16 border-gray-700 items-center'
+            className={`flex gap-4 px-4  border-b-2 h-16 border-gray-700 items-center  ${
+                isHover && 'bg-gray-200 rounded-lg'
+            }`}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}>
             <button

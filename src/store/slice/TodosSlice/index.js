@@ -1,22 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = [
-    // {
-    //     id: 5513,
-    //     task: 'Pul Task',
-    //     complete: true,
-    // },
-    // {
-    //     id: 1414,
-    //     task: 'Create Repository',
-    //     complete: false,
-    // },
-    // {
-    //     id: 5112,
-    //     task: 'Install Linux WSL',
-    //     complete: false,
-    // },
-];
+const initialState = [];
 
 export const todosSlice = createSlice({
     name: 'todos',
