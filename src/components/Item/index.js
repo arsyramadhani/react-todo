@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCheckCircle, FaRegCircle } from 'react-icons/fa';
 
-const ListItem = ({ id, task, complete, onComplete }) => {
+const ListItem = ({ id, task, complete, onComplete, onEdit }) => {
     const onHandleComplete = () => {
         onComplete({ id: id, complete: !complete });
     };
@@ -17,7 +17,10 @@ const ListItem = ({ id, task, complete, onComplete }) => {
                     <FaRegCircle size='24px' />
                 )}
             </button>
-            <button className='flex-1 text-left h-full focus:outline-none'>
+            <button
+                className={`flex-1 text-left h-full focus:outline-none  ${
+                    complete && 'line-through'
+                }`}>
                 {task}
             </button>
         </div>

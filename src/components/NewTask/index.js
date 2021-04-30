@@ -17,12 +17,13 @@ const NewTask = ({ onSubmit }) => {
     return (
         <>
             <form
-                className='flex  px-4 py-4 gap-2 bg-gray-200 border-t border-gray-800'
+                className='flex  px-4 py-4 gap-2 bg-gray-200 border-t border-gray-800 rounded-b-2xl'
                 onSubmit={e => onHandleSubmit(e)}>
                 <input
                     type='text'
                     className='flex-1 focus:outline-none h-full px-6 rounded-full'
                     value={value}
+                    placeholder='Add new task...'
                     onChange={e => setValue(e.target.value)}
                 />
                 <button

@@ -17,11 +17,14 @@ const Todo = () => {
         dispatch(completeTask(data));
     };
 
+    const onEdit = data => {
+        alert(data);
+    };
+
     return (
-        <div className='bg-green-200 h-full flex flex-col justify-between'>
-            {/* <div className='bg-red-400'>Header</div> */}
+        <div className=' h-full flex flex-col justify-between '>
             <Header />
-            <div className='flex-1 flex flex-col'>
+            <div className='flex-1 bg-gray-200 flex-col overflow-y-auto  '>
                 {todos.map((todo, i) => (
                     <ListItem
                         key={todo.id}
@@ -29,6 +32,7 @@ const Todo = () => {
                         task={todo.task}
                         complete={todo.complete}
                         onComplete={onComplete}
+                        onEdit={onEdit}
                     />
                 ))}
             </div>

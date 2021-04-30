@@ -11,6 +11,11 @@ const initialState = [
         task: 'Create Repository',
         complete: false,
     },
+    {
+        id: 5112,
+        task: 'Install Linux WSL',
+        complete: false,
+    },
 ];
 
 export const todosSlice = createSlice({
@@ -19,12 +24,12 @@ export const todosSlice = createSlice({
     reducers: {
         addTask: (state, { payload }) => {
             return [
-                ...state,
                 {
                     id: Math.floor(Math.random() * 10000) + 1,
                     task: payload,
                     complete: false,
                 },
+                ...state,
             ];
         },
         completeTask: (state, { payload }) => {
