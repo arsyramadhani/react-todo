@@ -1,21 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = [
-    {
-        id: 5513,
-        task: 'Pul Task',
-        complete: true,
-    },
-    {
-        id: 1414,
-        task: 'Create Repository',
-        complete: false,
-    },
-    {
-        id: 5112,
-        task: 'Install Linux WSL',
-        complete: false,
-    },
+    // {
+    //     id: 5513,
+    //     task: 'Pul Task',
+    //     complete: true,
+    // },
+    // {
+    //     id: 1414,
+    //     task: 'Create Repository',
+    //     complete: false,
+    // },
+    // {
+    //     id: 5112,
+    //     task: 'Install Linux WSL',
+    //     complete: false,
+    // },
 ];
 
 export const todosSlice = createSlice({
@@ -33,13 +33,16 @@ export const todosSlice = createSlice({
             ];
         },
         completeTask: (state, { payload }) => {
-            state = state.map(el =>
-                el.id === payload.id ? (el.complete = payload.complete) : el
-            );
+            const idx = state.findIndex(el => el.id === payload.id);
+            state[idx].complete = payload.complete;
+        },
+        deleteTask: (state, { payload }) => {
+            let oldState = state.filter(el => el.id !== payload);
+            return [...oldState];
         },
     },
 });
 
-export const { addTask, completeTask } = todosSlice.actions;
+export const { addTask, completeTask, deleteTask } = todosSlice.actions;
 
 export default todosSlice.reducer;

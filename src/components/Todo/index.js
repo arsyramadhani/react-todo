@@ -2,7 +2,11 @@ import React from 'react';
 import Header from '../Header';
 import NewTask from '../NewTask';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTask, completeTask } from '../../store/slice/TodosSlice';
+import {
+    addTask,
+    completeTask,
+    deleteTask,
+} from '../../store/slice/TodosSlice';
 import ListItem from '../ListItem';
 
 const Todo = () => {
@@ -20,11 +24,14 @@ const Todo = () => {
     const onEdit = data => {
         alert(data);
     };
+    const onDelete = data => {
+        dispatch(deleteTask(data));
+    };
 
     return (
         <div className=' h-full flex flex-col justify-between '>
             <Header />
-            <div className='flex-1 bg-gray-200 flex-col overflow-y-auto  '>
+            <div className='flex-1 bg-white flex-col overflow-y-auto px-2 md:px-4 '>
                 {todos.map((todo, i) => (
                     <ListItem
                         key={todo.id}
@@ -33,6 +40,7 @@ const Todo = () => {
                         complete={todo.complete}
                         onComplete={onComplete}
                         onEdit={onEdit}
+                        onDelete={onDelete}
                     />
                 ))}
             </div>
